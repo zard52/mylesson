@@ -125,4 +125,14 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    /**
+     * Displays my modified page.
+     *
+     * @return string
+     */
+    public function actionSchedule()
+    {
+        return $this->render('lesson');
+    }
 }
