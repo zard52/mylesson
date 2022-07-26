@@ -40,9 +40,12 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Schedule', 'url' => ['/site/schedule']],
+            ['label' => 'CRUD', 'url' => ['/lesson/index']],
+            ['label' => 'GII', 'url' => ['/gii']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (['label' => 'Schedule', 'url' => ['/lesson/index']]),
+            ) : 
             (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])

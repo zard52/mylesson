@@ -133,6 +133,6 @@ class SiteController extends Controller
      */
     public function actionSchedule()
     {
-        return $this->render('lesson');
+        return $this->render('schedule');
     }
 }

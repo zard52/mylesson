@@ -14,10 +14,5 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         content:
     </p>
-    <?php
-        $this->widget('CMaskedTextField',array(
-            'mask'=>'99/99/9999'
-        ));
-    ?>
     <code><?= __FILE__ ?></code>
 </div>
