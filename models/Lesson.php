@@ -33,7 +33,7 @@ class Lesson extends \yii\db\ActiveRecord
             [['tutor_id', 'student_id'], 'required'],
             [['tutor_id', 'student_id'], 'integer'],
             [['start', 'end'], 'safe'],
-            [['status'], 'string', 'max' => 255],
+            [['status'], 'string', 'max' => 20],
         ];
     }
 

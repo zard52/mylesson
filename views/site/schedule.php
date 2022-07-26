@@ -4,6 +4,10 @@
 
 use yii\helpers\Html;
 
+/* @var $this yii\web\View */
+/* @var $searchModel app\models\SearchLesson */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
 $this->title = 'Schedule';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -12,7 +16,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     
     <p>
-        content:
+   
     </p>
-    <code><?= __FILE__ ?></code>
 </div>
