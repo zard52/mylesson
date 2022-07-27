@@ -69,4 +69,22 @@ class SearchLesson extends Lesson
 
         return $dataProvider;
     }
+
+    public function searchByTutor($tutor_id)
+    {
+        $query = Lesson::find();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        if (!$this->validate()) {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere(['like', 'status', '1']);
+        $query->andFilterWhere(['=', 'tutor_id', $tutor_id]);
+
+        return $dataProvider;
+    }
 }

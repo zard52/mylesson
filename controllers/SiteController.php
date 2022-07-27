@@ -9,6 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Lesson;
+use app\models\SearchLesson;
 
 class SiteController extends Controller
 {
@@ -132,7 +134,16 @@ class SiteController extends Controller
      * @return string
      */
     public function actionSchedule()
-    {
-        return $this->render('schedule');
+    {   
+        $searchModel = new SearchLesson();
+
+        $tutor_id = Yii::$app->user->identity->id;
+        if (($dataProvider = $searchModel->searchByTutor($tutor_id)) !== null) {
+
+            return $this->render('schedule', [
+                'dataProvider' => $dataProvider,
+            ]);
+        }
+
     }
 }

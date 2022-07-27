@@ -3,6 +3,8 @@
 /** @var yii\web\View $this */
 
 use yii\helpers\Html;
+use yii\grid\ActionColumn;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\SearchLesson */
@@ -14,8 +16,24 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    
-    <p>
-   
-    </p>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        // 'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'tutor_id',
+            'student_id',
+            'start',
+            'end',
+            'status',
+            // [
+            //     'class' => ActionColumn::className(),
+            //     'urlCreator' => function ($action, \app\models\Lesson $model, $key, $index, $column) {
+            //         return Url::toRoute([$action, 'id' => $model->id]);
+            //     }
+            // ],
+        ],
+    ]); ?>
 </div>
