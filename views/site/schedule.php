@@ -5,6 +5,7 @@
 use yii\helpers\Html;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use marekpetras\calendarview\CalendarView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\SearchLesson */
@@ -36,4 +37,9 @@ $this->params['breadcrumbs'][] = $this->title;
             // ],
         ],
     ]); ?>
+    <!-- https://www.yiiframework.com/extension/yii2-calendarview -->
+
 </div>
+
+
+

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace app\models\search;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -72,7 +72,9 @@ class SearchLesson extends Lesson
 
     public function searchByTutor($tutor_id)
     {
-        $query = Lesson::find();
+        $query = Lesson::find()
+        ->where(['like', 'status', '1'])
+        ->where(['=', 'tutor_id', $tutor_id]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -81,9 +83,6 @@ class SearchLesson extends Lesson
         if (!$this->validate()) {
             return $dataProvider;
         }
-
-        $query->andFilterWhere(['like', 'status', '1']);
-        $query->andFilterWhere(['=', 'tutor_id', $tutor_id]);
 
         return $dataProvider;
     }

@@ -10,7 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Lesson;
-use app\models\SearchLesson;
+use app\models\search\SearchLesson;
 
 class SiteController extends Controller
 {
