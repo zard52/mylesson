@@ -35,7 +35,7 @@ class Note extends Model
         ];
     }
 
-    public function getNote()
+    public function getMaterial()
     {
         return $this->hasMany(Material::className(), ['tutor_id' => 'id']);
     }
