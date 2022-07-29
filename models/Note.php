@@ -34,4 +34,14 @@ class Note extends Model
             'created_at' => 'Created at',
         ];
     }
+
+    public function getNote()
+    {
+        return $this->hasMany(Material::className(), ['tutor_id' => 'id']);
+    }
+
+    public static function find()
+    {
+        return new LessonQuery(get_called_class());
+    }
 }

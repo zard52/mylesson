@@ -34,4 +34,9 @@ class Material extends Model
             'created_at' => 'Created at',
         ];
     }
+
+    public static function find()
+    {
+        return new LessonQuery(get_called_class());
+    }
 }
