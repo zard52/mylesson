@@ -38,6 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
     <!-- https://www.yiiframework.com/extension/yii2-calendarview -->
+    <!-- https://github.com/philippfrenzel/yii2fullcalendar -->
 
 </div>
 
