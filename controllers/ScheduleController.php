@@ -19,7 +19,6 @@ class ScheduleController extends \yii\web\Controller
 
             return $this->render('index', [
                 'dataProvider' => $dataProvider,
-                // 'notes' => $notes
             ]);
         }
     }
@@ -27,20 +26,20 @@ class ScheduleController extends \yii\web\Controller
     public function actionView($id)
     {   
         $notes = Note::find()->where(['=', 'lesson_id', $id])->orderBy('id')->all();
-        // $meterials = Material::find()->where(['=', 'lesson_id', $id])->orderBy('id')->all();
+        $materials = Material::find()->where(['=', 'lesson_id', $id])->orderBy('id')->all();
         
         return $this->render('view', [
             'model' => $this->findModel($id),
             'notes' => $notes,
-            // 'meterials' => $meterials,
+            'materials' => $materials,
         ]);
         
     }
     public function actionTest($id)
     {
-        $meterials = Material::find()->where(['=', 'lesson_id', $id])->orderBy('id')->all();
+        $materials = Material::find()->where(['=', 'lesson_id', $id])->orderBy('id')->all();
 
-        return $meterials;
+        return $materials;
     }
 
     protected function findModel($id)

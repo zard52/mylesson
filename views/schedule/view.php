@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
     }; ?>
     <h5>Materials</h5>
         
-    <?php foreach($meterials as $meterial){ ?>
+    <?php foreach($materials as $material){ ?>
     <?= Html::button($material->title, ['class' => 'btn btn-success','href'=>$material->link]) ?>
     <?php }; ?>
 

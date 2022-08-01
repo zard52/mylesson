@@ -5,14 +5,14 @@ namespace app\models;
 /**
  * This is the ActiveQuery class for [[Material]].
  *
- * @see Note
+ * @see Material
  */
 class MaterialQuery extends \yii\db\ActiveQuery
 {
-    public function active()
+    /*public function active()
     {
         return $this->andWhere('[[status]]=1');
-    }
+    }*/
 
     /**
      * {@inheritdoc}
