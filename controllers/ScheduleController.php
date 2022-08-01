@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Lesson;
 use app\models\Note;
+use app\models\Material;
 use app\models\search\SearchLesson;
 
 class ScheduleController extends \yii\web\Controller
@@ -25,17 +26,21 @@ class ScheduleController extends \yii\web\Controller
 
     public function actionView($id)
     {   
-        $query = Note::find();
-
-        $notes = $query->orderBy('id')
-        ->where(['=', 'lesson_id', $id])
-        ->all();
-
+        $notes = Note::find()->where(['=', 'lesson_id', $id])->orderBy('id')->all();
+        // $meterials = Material::find()->where(['=', 'lesson_id', $id])->orderBy('id')->all();
+        
         return $this->render('view', [
             'model' => $this->findModel($id),
             'notes' => $notes,
+            // 'meterials' => $meterials,
         ]);
         
+    }
+    public function actionTest($id)
+    {
+        $meterials = Material::find()->where(['=', 'lesson_id', $id])->orderBy('id')->all();
+
+        return $meterials;
     }
 
     protected function findModel($id)

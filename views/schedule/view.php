@@ -36,9 +36,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'status',
         ],
     ]) ?>
-
+    <h5>Notes</h5>
     <?php foreach($notes as $note){
         echo "<p>$note->message</p>";
     }; ?>
+    <h5>Materials</h5>
+        
+    <?php foreach($meterials as $meterial){ ?>
+    <?= Html::button($material->title, ['class' => 'btn btn-success','href'=>$material->link]) ?>
+    <?php }; ?>
 
 </div>

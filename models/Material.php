@@ -7,9 +7,10 @@ use yii\base\Model;
 class Material extends Model
 {
     public $id;
-    public $note_id;
+    public $lesson_id;
     public $title;
     public $description;
+    public $link;
 
     /**
      * @return array the validation rules.

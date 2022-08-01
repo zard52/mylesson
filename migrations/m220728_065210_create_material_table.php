@@ -17,6 +17,7 @@ class m220728_065210_create_material_table extends Migration
             'lesson_id' => $this->integer()->notNull(),
             'title' => $this->string()->notNull(),
             'description' => $this->string(),
+            'link' => $this->string(),
         ]);
     }
 
