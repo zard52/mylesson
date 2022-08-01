@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Lesson */
+/* @var $model app\models\Note */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Lessons', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Notes', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="lesson-view">
+<div class="note-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -25,20 +25,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
-            'tutor_id',
-            'student_id',
-            'start',
-            'end',
-            'status',
+            'message',
+            'created_at',
         ],
     ]) ?>
-
-    <?php foreach($notes as $note){
-        echo $note->message;
-    }; ?>
 
 </div>

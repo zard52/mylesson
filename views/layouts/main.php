@@ -40,7 +40,7 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
-            ['label' => 'Schedule', 'url' => ['/site/schedule']],//schedule = action() of controller
+            ['label' => 'Schedule', 'url' => ['/schedule/index']],//schedule = action() of controller
             ['label' => 'CRUD', 'url' => ['/lesson/index']],//lesson&site = controller
             ['label' => 'GII', 'url' => ['/gii']],
             Yii::$app->user->isGuest ? (

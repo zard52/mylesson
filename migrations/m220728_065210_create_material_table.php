@@ -18,9 +18,6 @@ class m220728_065210_create_material_table extends Migration
             'title' => $this->string()->notNull(),
             'description' => $this->string(),
         ]);
-
-        // $this->addForeignKey('FK_lesson_id',
-        // 'material', 'lesson_id','post', 'id');
     }
 
     /**

@@ -2,7 +2,9 @@
 
 namespace app\controllers;
 
+use Yii;
 use app\models\Lesson;
+use app\models\Note;
 use app\models\search\SearchLesson;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -56,7 +58,7 @@ class LessonController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($id)
         ]);
     }
 

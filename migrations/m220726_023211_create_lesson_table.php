@@ -18,7 +18,7 @@ class m220726_023211_create_lesson_table extends Migration
             'student_id' => $this->integer()->notNull(),
             'start' => $this->datetime(),
             'end' => $this->datetime(),
-            'status' => $this->string(),
+            'status' => $this->string(20),
         ]);
     }
 

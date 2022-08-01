@@ -1,20 +1,44 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
+use yii\helpers\Url;
+use yii\grid\ActionColumn;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Lesson */
+/* @var $searchModel app\models\NoteQuery */
+/* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Note';
+$this->title = 'Notes';
 $this->params['breadcrumbs'][] = $this->title;
-
-\yii\web\YiiAsset::register($this);
 ?>
-<div class="lesson-view">
+<div class="note-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    
+    <p>
+        <?= Html::a('Create Note', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'message',
+            'created_at',
+            [
+                'class' => ActionColumn::className(),
+                'urlCreator' => function ($action, Note $model, $key, $index, $column) {
+                    return Url::toRoute([$action, 'id' => $model->id]);
+                 }
+            ],
+        ],
+    ]); ?>
+
 
 </div>

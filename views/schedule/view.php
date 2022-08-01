@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
     <?php foreach($notes as $note){
-        echo $note->message;
+        echo "<p>$note->message</p>";
     }; ?>
 
 </div>

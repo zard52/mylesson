@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 
-class Material extends Model
+class Note extends Model
 {
     public $id;
-    public $note_id;
-    public $title;
-    public $description;
+    public $tutor_id;
+    public $message;
+    public $created_at;
 
     /**
      * @return array the validation rules.
@@ -17,8 +17,8 @@ class Material extends Model
     public function rules()
     {
         return [
-            ['note_id','required','message'=>'Need to tag lesson id'],
-            ['title','required','message'=>'Title must not empty'],
+            ['tutor_id','required','message'=>'Need to tag tutor id'],
+            ['message','required','message'=>'Message must not empty'],
             ['id', 'required'],
         ];
     }
@@ -35,8 +35,13 @@ class Material extends Model
         ];
     }
 
+    public function getMaterial()
+    {
+        return $this->hasMany(Material::className(), ['tutor_id' => 'id']);
+    }
+
     public static function find()
     {
-        return new MaterialQuery(get_called_class());
+        return new NoteQuery(get_called_class());
     }
 }

@@ -2,46 +2,62 @@
 
 namespace app\models;
 
-use yii\base\Model;
+use Yii;
 
-class Note extends Model
+/**
+ * This is the model class for table "note".
+ *
+ * @property int $id
+ * @property int $lesson_id
+ * @property string $message
+ * @property string $created_at
+ */
+class Note extends \yii\db\ActiveRecord
 {
-    public $id;
-    public $tutor_id;
-    public $message;
-    public $created_at;
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'note';
+    }
 
     /**
-     * @return array the validation rules.
+     * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            ['tutor_id','required','message'=>'Need to tag tutor id'],
-            ['message','required','message'=>'Message must not empty'],
-            ['id', 'required'],
+            [['message'], 'required'],
+            [['created_at'], 'safe'],
+            [['message'], 'string', 'max' => 255],
         ];
     }
 
     /**
-     * @return array customized attribute labels
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
         return [
+            'id' => 'ID',
             'message' => 'Message',
-            'tutor_id' => 'Tutor ID',
-            'created_at' => 'Created at',
+            'created_at' => 'Created At',
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return NoteQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new NoteQuery(get_called_class());
     }
 
     public function getMaterial()
     {
-        return $this->hasMany(Material::className(), ['tutor_id' => 'id']);
+        return $this->hasMany(Material::className(), ['note_id' => 'id']);
     }
 
-    public static function find()
-    {
-        return new LessonQuery(get_called_class());
-    }
 }

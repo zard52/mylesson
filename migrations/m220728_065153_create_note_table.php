@@ -14,7 +14,7 @@ class m220728_065153_create_note_table extends Migration
     {
         $this->createTable('{{%note}}', [
             'id' => $this->primaryKey(),
-            'lesson_id' => $this->int(),
+            'lesson_id' => $this->integer(),
             'message' => $this->string()->notNull(),
             'created_at' => $this->timestamp(),
         ]);
