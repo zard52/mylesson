@@ -23,7 +23,7 @@ class ScheduleController extends \yii\web\Controller
         }
     }
 
-    public function actionView()
+    public function actionView($id)
     {   
         $query = Note::find();
 
@@ -36,6 +36,15 @@ class ScheduleController extends \yii\web\Controller
             'notes' => $notes,
         ]);
         
+    }
+
+    protected function findModel($id)
+    {
+        if (($model = Lesson::findOne(['id' => $id])) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 
 }

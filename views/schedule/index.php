@@ -5,6 +5,7 @@
 use yii\helpers\Html;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\helpers\Url;
 use marekpetras\calendarview\CalendarView;
 
 /* @var $this yii\web\View */
@@ -29,12 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'start',
             'end',
             'status',
-            // [
-            //     'class' => ActionColumn::className(),
-            //     'urlCreator' => function ($action, \app\models\Lesson $model, $key, $index, $column) {
-            //         return Url::toRoute([$action, 'id' => $model->id]);
-            //     }
-            // ],
+            [
+                'class' => ActionColumn::className(),
+                'urlCreator' => function ($action, \app\models\Lesson $model, $key, $index, $column) {
+                    return Url::toRoute([$action, 'id' => $model->id]);
+                }
+            ],
         ],
     ]); ?>
     <!-- https://www.yiiframework.com/extension/yii2-calendarview -->
