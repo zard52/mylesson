@@ -29,12 +29,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'start',
             'end',
             'status',
-            // [
-            //     'class' => ActionColumn::className(),
-            //     'urlCreator' => function ($action, \app\models\Lesson $model, $key, $index, $column) {
-            //         return Url::toRoute([$action, 'id' => $model->id]);
-            //     }
-            // ],
+            [
+                'class' => ActionColumn::className(),
+                'urlCreator' => function ($action, \app\models\Lesson $model, $key, $index, $column) {
+                    return Url::toRoute([$action, 'id' => $model->id]);
+                }
+            ],
         ],
     ]); ?>
     <!-- https://www.yiiframework.com/extension/yii2-calendarview -->

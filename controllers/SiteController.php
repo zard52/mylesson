@@ -133,17 +133,5 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionSchedule()
-    {   
-        $searchModel = new SearchLesson();
-
-        $tutor_id = Yii::$app->user->identity->id;
-        if (($dataProvider = $searchModel->searchByTutor($tutor_id)) !== null) {
-
-            return $this->render('schedule', [
-                'dataProvider' => $dataProvider,
-            ]);
-        }
-
-    }
+    
 }

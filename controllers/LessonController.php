@@ -2,7 +2,6 @@
 
 namespace app\controllers;
 
-use Yii;
 use app\models\Lesson;
 use app\models\Note;
 use app\models\search\SearchLesson;
